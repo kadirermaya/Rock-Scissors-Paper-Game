@@ -37,10 +37,11 @@ namespace RockPaperScissorsGame
             player1.ChoosePlayerName();
             player2.ChoosePlayerName();
             Console.WriteLine($"Let's begin the game!");
-            player1.ChooseGesture();
-            player2.ChooseGesture();
+            StartGame();
             CompareTheRound();
-            
+            CheckIfThereIsWinner();
+
+
 
 
         }
@@ -173,23 +174,23 @@ namespace RockPaperScissorsGame
             }
             else if (player1.gesture == "1" && player2.gesture == "1")
             {
-                Console.WriteLine($"Tie");
+                Console.WriteLine($"Rock and Rock! Tie");
             }
             else if (player1.gesture == "2" && player2.gesture == "2")
             {
-                Console.WriteLine($"Tie");
+                Console.WriteLine($"Scissors and Scissors! Tie");
             }
             else if (player1.gesture == "3" && player2.gesture == "3")
             {
-                Console.WriteLine($"Tie");
+                Console.WriteLine($"Paper and Paper! Tie");
             }
             else if (player1.gesture == "4" && player2.gesture == "4")
             {
-                Console.WriteLine($"Tie");
+                Console.WriteLine($"Soock and Spock! Tie");
             }
             else if (player1.gesture == "5" && player2.gesture == "5")
             {
-                Console.WriteLine($"Tie");
+                Console.WriteLine($"Lizard and Lizard! Tie");
             }
             else
             {
@@ -199,7 +200,32 @@ namespace RockPaperScissorsGame
 
         }
 
+        public void CheckIfThereIsWinner()
+        {
+            while (player1Score != 2 && player2Score != 2)
+            {
+                StartGame();
+                CompareTheRound();
+                if (player1Score == 2 || player2Score == 2)
+                {
+                    if (player1Score == 2)
+                    {
+                        Console.WriteLine($"The winner is {player1.name}");
+                    }
+                    else if (player2Score == 2)
+                    {
+                        Console.WriteLine($"The winner is {player2.name}");
+                    }
 
+                }
+            }
+        }
+        //this method starts the game
+        public void StartGame()
+        {
+            player1.ChooseGesture();
+            player2.ChooseGesture();
+        }
 
 
 
