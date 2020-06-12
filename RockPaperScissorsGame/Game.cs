@@ -13,8 +13,7 @@ namespace RockPaperScissorsGame
         public Player player1;
         public Player player2;
         public List<string> rules;
-        public string player1Gesture;
-        public string player2Gesture;
+        public string gesture;
         public Random randomNumber;
 
 
@@ -33,12 +32,12 @@ namespace RockPaperScissorsGame
             ChooseGameMod();
             player1.ChoosePlayerName();
             player2.ChoosePlayerName();
-            player1.DisplayGesture();
-            player1Gesture = Console.ReadLine();
-            player2.DisplayGesture();
-            player2Gesture = RandomGestureIfComputer();         
+            Console.WriteLine($"Let's begin the game!");
+            player1.ChooseGesture();
+            player2.ChooseGesture();
             
-            
+
+
         }
         
         //Member Methods (CAN DO)
@@ -93,11 +92,11 @@ namespace RockPaperScissorsGame
             }
             else if (userInput == "2")
             {
-                player2 = new Computer("Mac");
+                player2 = new Computer("AI");
             }
             else
             {
-                while (userInput != "1" && userInput != "0")
+                while (userInput != "1" &&  userInput != "2")
                 {
                     Console.WriteLine("Ooopppsss something wrong!!!\nPlease press 1 and click ENTER! for Player vs Player\nPlease press 2 and click ENTER! for Player vs Computer");
                     userInput = Console.ReadLine();
@@ -108,29 +107,21 @@ namespace RockPaperScissorsGame
                     }
                     else if (userInput == "2")
                     {
-                        player2 = new Computer("Mac");
+                        player2 = new Computer("AI");
                     }
+                   
                 }
             }
         }
-        // checks if player2 computer
-        // picks random gesture if 
-        public string RandomGestureIfComputer()
+
+        public void CompareTheRound()
         {
-            if (player2.type == "computer")
-            {
-            randomNumber = new Random();
-            Console.WriteLine($"{player2.name} picked {randomNumber.Next(1, 5)}");
-            return randomNumber.ToString();                
-            }
-            else
-            {
-            return player2Gesture = Console.ReadLine();
-            }
 
         }
         
+        
 
+        
 
 
     }
