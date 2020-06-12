@@ -10,8 +10,10 @@ namespace RockPaperScissorsGame
     {
         //Member Variables (HAS A)
         public Player player1;
+        public Player player2;
         public List<string> rules;
-        
+        string userInput;
+
 
         //Constructor (SPAWNER)
         public Game()
@@ -25,6 +27,7 @@ namespace RockPaperScissorsGame
         {
             WelcomeScreen();
             DisplayTheRules();
+            ChooseGameMod();
         }
         
         //Member Methods (CAN DO)
@@ -62,7 +65,37 @@ namespace RockPaperScissorsGame
             Console.WriteLine();
         }
 
-
+        public void ChooseGameMod()
+        {
+            Console.WriteLine("\nChoose your game mod here!");
+            Console.WriteLine("Please press 1 and click ENTER! for Player vs Player\nPlease press 2 and click ENTER! for Player vs Computer");
+            string userInput = Console.ReadLine();
+            if (userInput == "1")
+            {
+                player2 = new Player();
+            }
+            else if (userInput == "2")
+            {
+                player2 = new Computer();
+            }
+            else
+            {
+                while (userInput != "1" && userInput != "0")
+                {
+                    Console.WriteLine("Ooopppsss something wrong!!!\nPlease press 1 and click ENTER! for Player vs Player\nPlease press 2 and click ENTER! for Player vs Computer");
+                    userInput = Console.ReadLine();
+                    
+                    if (userInput == "1")
+                    {
+                        player2 = new Player();
+                    }
+                    else if (userInput == "2")
+                    {
+                        player2 = new Computer();
+                    }
+                }
+            }
+        }
 
 
 
