@@ -19,13 +19,21 @@ namespace RockPaperScissorsGame
             player1 = new Player();
             rules = new List<string>();
         }
+        
+        
+        public void RunGame()
+        {
+            WelcomeScreen();
+            DisplayTheRules();
+        }
+        
         //Member Methods (CAN DO)
 
        
         //adds the rules to rules list
         public void AddTheRules()
         {
-            rules.Add("Rock crushes Scissor");
+            rules.Add("\nRock crushes Scissor");
             rules.Add("Scissors cuts Paper");
             rules.Add("Paper covers Rock");
             rules.Add("Rock crushes Lizard");
@@ -41,10 +49,17 @@ namespace RockPaperScissorsGame
         public void DisplayTheRules()
         {
             AddTheRules();
+            Console.WriteLine("Game rules:");
             foreach (string rule in rules)
             {
                 Console.WriteLine(rule);
             }
+        }
+
+        public void WelcomeScreen()
+        {
+            Console.WriteLine("\nWelcome to ****----Rock Paper Scissors Lizard Spock----**** game!");
+            Console.WriteLine();
         }
 
 
