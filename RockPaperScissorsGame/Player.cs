@@ -11,6 +11,7 @@ namespace RockPaperScissorsGame
         //Member Variables (HAS A)
         public List<string> gestures;
         public string name;
+        public string type;
 
         //Constructor (SPAWNER)
 
@@ -27,14 +28,29 @@ namespace RockPaperScissorsGame
         public void AddGestures()
         {
             gestures = new List<string>();
-            gestures.Add("rock");
-            gestures.Add("paper");
-            gestures.Add("scissors");
-            gestures.Add("spock");
-            gestures.Add("lizard");
+            gestures.Add("Rock");
+            gestures.Add("Paper");
+            gestures.Add("Scissors");
+            gestures.Add("Spock");
+            gestures.Add("Lizard");
         }
 
+        // this is an abstract method
         public abstract void ChoosePlayerName();
+
+        // this method displays gestures
+        public void DisplayGesture()
+        {
+            AddGestures();
+            Console.WriteLine($"{name} choose your Gesture!");
+            
+            for (int i = 0; i < gestures.Count; i++)
+            {
+            Console.Write($"{i + 1}:{gestures[i]} ");
+            }
+            Console.WriteLine();
+
+        }
         
     }
 }
