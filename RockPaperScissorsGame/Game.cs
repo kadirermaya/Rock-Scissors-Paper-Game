@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,9 @@ namespace RockPaperScissorsGame
         public Player player1;
         public Player player2;
         public List<string> rules;
+        public string player1Gesture;
+        public string player2Gesture;
+        public Random randomNumber;
 
 
         //Constructor (SPAWNER)
@@ -29,6 +33,12 @@ namespace RockPaperScissorsGame
             ChooseGameMod();
             player1.ChoosePlayerName();
             player2.ChoosePlayerName();
+            player1.DisplayGesture();
+            player1Gesture = Console.ReadLine();
+            player2.DisplayGesture();
+            player2Gesture = RandomGestureIfComputer();         
+            
+            
         }
         
         //Member Methods (CAN DO)
@@ -103,6 +113,23 @@ namespace RockPaperScissorsGame
                 }
             }
         }
+        // checks if player2 computer
+        // picks random gesture if 
+        public string RandomGestureIfComputer()
+        {
+            if (player2.type == "computer")
+            {
+            randomNumber = new Random();
+            Console.WriteLine($"{player2.name} picked {randomNumber.Next(1, 5)}");
+            return randomNumber.ToString();                
+            }
+            else
+            {
+            return player2Gesture = Console.ReadLine();
+            }
+
+        }
+        
 
 
 
