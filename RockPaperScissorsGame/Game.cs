@@ -41,9 +41,6 @@ namespace RockPaperScissorsGame
             CompareTheRound();
             CheckIfThereIsWinner();
 
-
-
-
         }
         
         //Member Methods (CAN DO)
@@ -62,8 +59,6 @@ namespace RockPaperScissorsGame
             rules.Add("Lizard eats Paper");
             rules.Add("Paper disproves Spock");
             rules.Add("Spock vaporizes Rock");
-            
-                        
         }
 
         // it displays the game rules
@@ -119,60 +114,196 @@ namespace RockPaperScissorsGame
                 }
             }
         }
+
         // this method compares the round
         public void CompareTheRound()
+        {
+            PlayerOneGetsPoint();
+            PlayerTwoGetsPoint();
+            Tie();
+
+        }
+
+       // chooses best of three
+        public void CheckIfThereIsWinner()
+        {
+            while (player1Score != 2 && player2Score != 2)
+            {
+                StartGame();
+                CompareTheRound();
+                if (player1Score == 2 || player2Score == 2)
+                {
+                    if (player1Score == 2)
+                    {
+                        Console.WriteLine($"The winner is ********-----{player1.name}-----********");
+                    }
+                    else if (player2Score == 2)
+                    {
+                        Console.WriteLine($"The winner is ********-----{player2.name}-----********");
+                    }
+
+                }
+            }
+        }
+        //this method starts the game
+        public void StartGame()
+        {
+            player1.ChooseGesture();
+            player2.ChooseGesture();
+        }
+
+        // checks who gets a point
+        public void PlayerOneGetsPoint()
         {
             if (player1.gesture == "1" && player2.gesture == "3")
             {
                 Console.WriteLine($"Rock crushes Scissors");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "3" && player2.gesture == "2")
             {
                 Console.WriteLine($"Scissors cuts Paper");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "2" && player2.gesture == "1")
             {
                 Console.WriteLine($"Paper covers Rock");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "1" && player2.gesture == "5")
             {
                 Console.WriteLine($"Rock crushes Lizard");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "5" && player2.gesture == "4")
             {
                 Console.WriteLine($"Lizard poisons Spock");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "4" && player2.gesture == "3")
             {
                 Console.WriteLine($"Spock smashes Scissors");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "3" && player2.gesture == "5")
             {
                 Console.WriteLine($"Scissors decapitates Lizard");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "5" && player2.gesture == "3")
             {
                 Console.WriteLine($"Lizard eats Paper");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "2" && player2.gesture == "4")
             {
                 Console.WriteLine($"Paper disproves Spock");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
             else if (player1.gesture == "4" && player2.gesture == "1")
             {
                 Console.WriteLine($"Spock vaporizes Rock");
                 player1Score++;
+                Console.WriteLine($"{player1.name} gets this round");
+                Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
             }
-            else if (player1.gesture == "1" && player2.gesture == "1")
+        }
+        public void PlayerTwoGetsPoint()
+        {
+            if (player2.gesture == "1" && player1.gesture == "3")
+            {
+                Console.WriteLine($"Rock crushes Scissors");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+
+            }
+            else if (player2.gesture == "3" && player1.gesture == "2")
+            {
+                Console.WriteLine($"Scissors cuts Paper");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "2" && player1.gesture == "1")
+            {
+                Console.WriteLine($"Paper covers Rock");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "1" && player1.gesture == "5")
+            {
+                Console.WriteLine($"Rock crushes Lizard");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "5" && player1.gesture == "4")
+            {
+                Console.WriteLine($"Lizard poisons Spock");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "4" && player1.gesture == "3")
+            {
+                Console.WriteLine($"Spock smashes Scissors");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "3" && player1.gesture == "5")
+            {
+                Console.WriteLine($"Scissors decapitates Lizard");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "5" && player1.gesture == "3")
+            {
+                Console.WriteLine($"Lizard eats Paper");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "2" && player1.gesture == "4")
+            {
+                Console.WriteLine($"Paper disproves Spock");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+            else if (player2.gesture == "4" && player1.gesture == "1")
+            {
+                Console.WriteLine($"Spock vaporizes Rock");
+                player2Score++;
+                Console.WriteLine($"{player2.name} gets this round");
+                Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+            }
+
+        }
+        public void Tie()
+        {
+           if (player1.gesture == "1" && player2.gesture == "1")
             {
                 Console.WriteLine($"Rock and Rock! Tie");
             }
@@ -192,42 +323,7 @@ namespace RockPaperScissorsGame
             {
                 Console.WriteLine($"Lizard and Lizard! Tie");
             }
-            else
-            {
-                player2Score++;
-            }
-
-
         }
-
-        public void CheckIfThereIsWinner()
-        {
-            while (player1Score != 2 && player2Score != 2)
-            {
-                StartGame();
-                CompareTheRound();
-                if (player1Score == 2 || player2Score == 2)
-                {
-                    if (player1Score == 2)
-                    {
-                        Console.WriteLine($"The winner is {player1.name}");
-                    }
-                    else if (player2Score == 2)
-                    {
-                        Console.WriteLine($"The winner is {player2.name}");
-                    }
-
-                }
-            }
-        }
-        //this method starts the game
-        public void StartGame()
-        {
-            player1.ChooseGesture();
-            player2.ChooseGesture();
-        }
-
-
 
 
     }
