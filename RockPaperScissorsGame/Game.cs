@@ -15,6 +15,10 @@ namespace RockPaperScissorsGame
         public List<string> rules;
         public string gesture;
         public Random randomNumber;
+        public int player1Score;
+        public int player2Score;
+
+
 
 
         //Constructor (SPAWNER)
@@ -35,6 +39,7 @@ namespace RockPaperScissorsGame
             Console.WriteLine($"Let's begin the game!");
             player1.ChooseGesture();
             player2.ChooseGesture();
+            CompareTheRound();
             
 
 
@@ -113,15 +118,90 @@ namespace RockPaperScissorsGame
                 }
             }
         }
-
+        // this method compares the round
         public void CompareTheRound()
         {
+            if (player1.gesture == "1" && player2.gesture == "3")
+            {
+                Console.WriteLine($"Rock crushes Scissors");
+                player1Score++;
+            }
+            else if (player1.gesture == "3" && player2.gesture == "2")
+            {
+                Console.WriteLine($"Scissors cuts Paper");
+                player1Score++;
+            }
+            else if (player1.gesture == "2" && player2.gesture == "1")
+            {
+                Console.WriteLine($"Paper covers Rock");
+                player1Score++;
+            }
+            else if (player1.gesture == "1" && player2.gesture == "5")
+            {
+                Console.WriteLine($"Rock crushes Lizard");
+                player1Score++;
+            }
+            else if (player1.gesture == "5" && player2.gesture == "4")
+            {
+                Console.WriteLine($"Lizard poisons Spock");
+                player1Score++;
+            }
+            else if (player1.gesture == "4" && player2.gesture == "3")
+            {
+                Console.WriteLine($"Spock smashes Scissors");
+                player1Score++;
+            }
+            else if (player1.gesture == "3" && player2.gesture == "5")
+            {
+                Console.WriteLine($"Scissors decapitates Lizard");
+                player1Score++;
+            }
+            else if (player1.gesture == "5" && player2.gesture == "3")
+            {
+                Console.WriteLine($"Lizard eats Paper");
+                player1Score++;
+            }
+            else if (player1.gesture == "2" && player2.gesture == "4")
+            {
+                Console.WriteLine($"Paper disproves Spock");
+                player1Score++;
+            }
+            else if (player1.gesture == "4" && player2.gesture == "1")
+            {
+                Console.WriteLine($"Spock vaporizes Rock");
+                player1Score++;
+            }
+            else if (player1.gesture == "1" && player2.gesture == "1")
+            {
+                Console.WriteLine($"Tie");
+            }
+            else if (player1.gesture == "2" && player2.gesture == "2")
+            {
+                Console.WriteLine($"Tie");
+            }
+            else if (player1.gesture == "3" && player2.gesture == "3")
+            {
+                Console.WriteLine($"Tie");
+            }
+            else if (player1.gesture == "4" && player2.gesture == "4")
+            {
+                Console.WriteLine($"Tie");
+            }
+            else if (player1.gesture == "5" && player2.gesture == "5")
+            {
+                Console.WriteLine($"Tie");
+            }
+            else
+            {
+                player2Score++;
+            }
+
 
         }
-        
-        
 
-        
+
+
+
 
 
     }
