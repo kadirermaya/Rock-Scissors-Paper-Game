@@ -9,32 +9,37 @@ namespace RockPaperScissorsGame
     public class Game
     {
         //Member Variables (HAS A)
-
-        public List<string> gestures;
+        public Player player1;
+        public List<string> rules;
+        
 
         //Constructor (SPAWNER)
         public Game()
         {
-            
+            player1 = new Player();
+            rules = new List<string>();
         }
         //Member Methods (CAN DO)
 
-        public void AddGestures()
+       
+        //adds the rules to rules list
+        public void AddTheRules()
         {
-            gestures = new List<string>();
-            gestures.Add("rock");
-            gestures.Add("paper");
-            gestures.Add("scissors");
-            gestures.Add("spock");
-            gestures.Add("lizard");
+            rules.Add("Rock crushes Scissor");
+            rules.Add("Scissors cuts Paper");
+            rules.Add("Paper covers Rock");
+            rules.Add("Rock crushes Lizard");
+            rules.Add("Lizard poisons Spock");
+            rules.Add("Spock smashes Scissors");
+            rules.Add("Scissors decapitates Lizard");
+            rules.Add("Lizard eats Paper");
+            rules.Add("Paper disproves Spock");
+            rules.Add("Spock vaporizes Rock");
+                        
         }
 
-        public void DisplayGestures()
-        {
-            Console.WriteLine("Please choose a gesture!");
-            Console.WriteLine($"0: {gestures[0]} 1: {gestures[1]} 2: {gestures[2]} 3: {gestures[3]} 4: {gestures[4]}");
-            
-        }
+
+
 
 
     }
