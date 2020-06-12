@@ -38,6 +38,15 @@ namespace RockPaperScissorsGame
                         
         }
 
+        public void DisplayTheRules()
+        {
+            AddTheRules();
+            foreach (string rule in rules)
+            {
+                Console.WriteLine(rule);
+            }
+        }
+
 
 
 
