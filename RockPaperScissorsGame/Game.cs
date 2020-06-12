@@ -27,8 +27,8 @@ namespace RockPaperScissorsGame
             player1 = new Human("Player One");
             rules = new List<string>();
         }
-        
-        
+
+
         public void RunGame()
         {
             WelcomeScreen();
@@ -42,10 +42,10 @@ namespace RockPaperScissorsGame
             CheckIfThereIsWinner();
 
         }
-        
+
         //Member Methods (CAN DO)
 
-       
+
         //adds the rules to rules list
         public void AddTheRules()
         {
@@ -97,11 +97,11 @@ namespace RockPaperScissorsGame
             }
             else
             {
-                while (userInput != "1" &&  userInput != "2")
+                while (userInput != "1" && userInput != "2")
                 {
                     Console.WriteLine("Ooopppsss something wrong!!!\nPlease press 1 and click ENTER! for Player vs Player\nPlease press 2 and click ENTER! for Player vs Computer");
                     userInput = Console.ReadLine();
-                    
+
                     if (userInput == "1")
                     {
                         player2 = new Human("Player 2");
@@ -110,7 +110,7 @@ namespace RockPaperScissorsGame
                     {
                         player2 = new Computer("AI");
                     }
-                   
+
                 }
             }
         }
@@ -124,7 +124,7 @@ namespace RockPaperScissorsGame
 
         }
 
-       // chooses best of three
+        // chooses best of three
         public void CheckIfThereIsWinner()
         {
             while (player1Score != 2 && player2Score != 2)
@@ -145,6 +145,7 @@ namespace RockPaperScissorsGame
                 }
             }
         }
+
         //this method starts the game
         public void StartGame()
         {
@@ -303,7 +304,7 @@ namespace RockPaperScissorsGame
         }
         public void Tie()
         {
-           if (player1.gesture == "1" && player2.gesture == "1")
+            if (player1.gesture == "1" && player2.gesture == "1")
             {
                 Console.WriteLine($"Rock and Rock! Tie");
             }
@@ -323,8 +324,9 @@ namespace RockPaperScissorsGame
             {
                 Console.WriteLine($"Lizard and Lizard! Tie");
             }
+
         }
 
-
+      
     }
 }
