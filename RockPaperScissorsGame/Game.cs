@@ -12,13 +12,12 @@ namespace RockPaperScissorsGame
         public Player player1;
         public Player player2;
         public List<string> rules;
-        string userInput;
 
 
         //Constructor (SPAWNER)
         public Game()
         {
-            player1 = new Player();
+            player1 = new Human("Player One");
             rules = new List<string>();
         }
         
@@ -28,6 +27,8 @@ namespace RockPaperScissorsGame
             WelcomeScreen();
             DisplayTheRules();
             ChooseGameMod();
+            player1.ChoosePlayerName();
+            player2.ChoosePlayerName();
         }
         
         //Member Methods (CAN DO)
@@ -46,9 +47,11 @@ namespace RockPaperScissorsGame
             rules.Add("Lizard eats Paper");
             rules.Add("Paper disproves Spock");
             rules.Add("Spock vaporizes Rock");
+            
                         
         }
 
+        // it displays the game rules
         public void DisplayTheRules()
         {
             AddTheRules();
@@ -57,26 +60,30 @@ namespace RockPaperScissorsGame
             {
                 Console.WriteLine(rule);
             }
+            Console.WriteLine("\nPress ENTER if you understand the rules and continue!");
+            Console.ReadLine();
         }
 
+        // welcome game information screen         
         public void WelcomeScreen()
         {
             Console.WriteLine("\nWelcome to ****----Rock Paper Scissors Lizard Spock----**** game!");
             Console.WriteLine();
         }
 
+        // user can choose game mod
         public void ChooseGameMod()
         {
-            Console.WriteLine("\nChoose your game mod here!");
+            Console.WriteLine("Choose your game mod here!");
             Console.WriteLine("Please press 1 and click ENTER! for Player vs Player\nPlease press 2 and click ENTER! for Player vs Computer");
             string userInput = Console.ReadLine();
             if (userInput == "1")
             {
-                player2 = new Player();
+                player2 = new Human("Player 2");
             }
             else if (userInput == "2")
             {
-                player2 = new Computer();
+                player2 = new Computer("Mac");
             }
             else
             {
@@ -87,11 +94,11 @@ namespace RockPaperScissorsGame
                     
                     if (userInput == "1")
                     {
-                        player2 = new Player();
+                        player2 = new Human("Player 2");
                     }
                     else if (userInput == "2")
                     {
-                        player2 = new Computer();
+                        player2 = new Computer("Mac");
                     }
                 }
             }
