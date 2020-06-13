@@ -25,11 +25,12 @@ namespace RockPaperScissorsGame
         {
             Console.WriteLine($"\nGreat! Lets pick a name for {name}");
             Console.WriteLine($"Type your player name and click ENTER!");
-            name = Console.ReadLine();
+            name = Console.ReadLine().TrimStart(' ').TrimEnd(' ');
+            
             while (string.IsNullOrEmpty(name))          // validation added
             {
-                Console.WriteLine($"Name cannot be EMPTY!");
-                name = Console.ReadLine();
+                Console.WriteLine("Name cannot be EMPTY!");
+                name = Console.ReadLine().TrimStart(' ').TrimEnd(' ');
             }
             Console.WriteLine($"You succesfuly changed it. Your player name is {name} now!");
             Console.WriteLine();
@@ -49,5 +50,5 @@ namespace RockPaperScissorsGame
             
             
         }
-}
+    }
 }
