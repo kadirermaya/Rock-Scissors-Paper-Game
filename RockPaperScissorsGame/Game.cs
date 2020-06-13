@@ -17,6 +17,7 @@ namespace RockPaperScissorsGame
         public Random randomNumber;
         public int player1Score;
         public int player2Score;
+        public bool isWinnerFound = false;
 
 
 
@@ -49,23 +50,23 @@ namespace RockPaperScissorsGame
         //adds the rules to rules list
         public void AddTheRules()
         {
-            rules.Add("\nRock crushes Scissor");
-            rules.Add("Scissors cuts Paper");
-            rules.Add("Paper covers Rock");
-            rules.Add("Rock crushes Lizard");
-            rules.Add("Lizard poisons Spock");
-            rules.Add("Spock smashes Scissors");
-            rules.Add("Scissors decapitates Lizard");
-            rules.Add("Lizard eats Paper");
-            rules.Add("Paper disproves Spock");
-            rules.Add("Spock vaporizes Rock");
+            rules.Add("\n1.  Rock crushes Scissor");
+            rules.Add("2.  Scissors cuts Paper");
+            rules.Add("3.  Paper covers Rock");
+            rules.Add("4.  Rock crushes Lizard");
+            rules.Add("5.  Lizard poisons Spock");
+            rules.Add("6.  Spock smashes Scissors");
+            rules.Add("7.  Scissors decapitates Lizard");
+            rules.Add("8.  Lizard eats Paper");
+            rules.Add("9.  Paper disproves Spock");
+            rules.Add("10. Spock vaporizes Rock");
         }
 
         // it displays the game rules
         public void DisplayTheRules()
         {
             AddTheRules();
-            Console.WriteLine("Game rules:");
+            Console.WriteLine("******\\\\\\Game rules///****");
             foreach (string rule in rules)
             {
                 Console.WriteLine(rule);
@@ -84,8 +85,8 @@ namespace RockPaperScissorsGame
         // user can choose game mod
         public void ChooseGameMod()
         {
-            Console.WriteLine("Choose your game mod here!");
-            Console.WriteLine("Please press 1 and click ENTER! for Player vs Player\nPlease press 2 and click ENTER! for Player vs Computer");
+            Console.WriteLine("----------- Choose your game mod here! -----------");
+            Console.WriteLine("\nPlease press 1 and click ENTER! for - Player vs Player - \nPlease press 2 and click ENTER! for - Player vs Computer - ");
             string userInput = Console.ReadLine();
             if (userInput == "1")
             {
@@ -119,9 +120,16 @@ namespace RockPaperScissorsGame
         public void CompareTheRound()
         {
             PlayerOneGetsPoint();
-            PlayerTwoGetsPoint();
-            Tie();
-
+            if (!isWinnerFound)
+            { 
+                PlayerTwoGetsPoint();
+            }
+            if (!isWinnerFound)
+            {
+                Tie();
+            }
+            
+            isWinnerFound = false;
         }
 
         // chooses best of three
@@ -162,6 +170,7 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
             }
             else if (player1.gesture == "3" && player2.gesture == "2")
             {
@@ -169,6 +178,8 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
+
             }
             else if (player1.gesture == "2" && player2.gesture == "1")
             {
@@ -176,6 +187,7 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
             }
             else if (player1.gesture == "1" && player2.gesture == "5")
             {
@@ -183,13 +195,17 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
             }
+
             else if (player1.gesture == "5" && player2.gesture == "4")
             {
                 Console.WriteLine($"Lizard poisons Spock");
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
+
             }
             else if (player1.gesture == "4" && player2.gesture == "3")
             {
@@ -197,6 +213,8 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
+
             }
             else if (player1.gesture == "3" && player2.gesture == "5")
             {
@@ -204,6 +222,7 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
             }
             else if (player1.gesture == "5" && player2.gesture == "3")
             {
@@ -211,6 +230,7 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
             }
             else if (player1.gesture == "2" && player2.gesture == "4")
             {
@@ -218,6 +238,7 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
             }
             else if (player1.gesture == "4" && player2.gesture == "1")
             {
@@ -225,6 +246,7 @@ namespace RockPaperScissorsGame
                 player1Score++;
                 Console.WriteLine($"{player1.name} gets this round");
                 Console.WriteLine($"{player1.name} score {player1Score} and {player2.name} score {player2Score}");
+                isWinnerFound = true;
             }
         }
         public void PlayerTwoGetsPoint()
@@ -235,7 +257,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
-
+                isWinnerFound = true;
             }
             else if (player2.gesture == "3" && player1.gesture == "2")
             {
@@ -243,6 +265,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "2" && player1.gesture == "1")
             {
@@ -250,6 +273,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "1" && player1.gesture == "5")
             {
@@ -257,6 +281,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "5" && player1.gesture == "4")
             {
@@ -264,6 +289,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "4" && player1.gesture == "3")
             {
@@ -271,6 +297,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "3" && player1.gesture == "5")
             {
@@ -278,6 +305,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "5" && player1.gesture == "3")
             {
@@ -285,6 +313,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "2" && player1.gesture == "4")
             {
@@ -292,6 +321,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
             else if (player2.gesture == "4" && player1.gesture == "1")
             {
@@ -299,6 +329,7 @@ namespace RockPaperScissorsGame
                 player2Score++;
                 Console.WriteLine($"{player2.name} gets this round");
                 Console.WriteLine($"{player2.name} score {player2Score} and {player1.name} score {player1Score}");
+                isWinnerFound = true;
             }
 
         }
@@ -307,6 +338,7 @@ namespace RockPaperScissorsGame
             if (player1.gesture == "1" && player2.gesture == "1")
             {
                 Console.WriteLine($"Rock and Rock! Tie");
+
             }
             else if (player1.gesture == "2" && player2.gesture == "2")
             {
